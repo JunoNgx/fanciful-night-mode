@@ -16,4 +16,3 @@ const updateClasses = () => {
 
 const mainElem = document.getElementsByClassName("main")[0];
 mainElem.addEventListener("click", handleClickEvent);
-
