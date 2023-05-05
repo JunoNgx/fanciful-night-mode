@@ -1,7 +1,13 @@
 $trans-time: 1s
 $trans-mode: ease-in-out
+
+@mixin circle($size)
+    width: $size
+    height: $size
+    border-radius: 50%
     
 body
+    background-color: black
     margin: 0
     display: flex
     place-items: center
@@ -17,14 +23,14 @@ body
     border-radius: 75px
     border: solid grey 5px
     overflow: hidden
-    background-color: DodgerBlue
+    background-color: DeepSkyBlue
     transition: background-color $trans-time $trans-mode
     
     &.is-dark
         background-color: MidnightBlue
 
 .switch
-    position: relative
+    position: absolute
     margin: 10px
     width: 120px
     height: 120px
@@ -37,6 +43,8 @@ body
         margin-left: 220px
         background-color: silver
 
+// This is dumb and terrible
+// Should use a container then transform translate the container for more simple rules
 .sunlight
     // position: absolute
     // top: 20px
@@ -55,25 +63,28 @@ body
         transition: transform $trans-time $trans-mode
 
         &--bottom
-            $size: 450px
+            @include circle(450px)
+            // $size: 450px
             transform: translate(-160px, -160px)
-            width: $size
-            height: $size
+            // width: $size
+            // height: $size
             opacity: 0.1
 
         &--mid
-            $size: 330px
+            @include circle(330px)
+            // $size: 330px
             transform: translate(-100px, -100px)
-            width: $size
-            height: $size
+            // width: $size
+            // height: $size
             opacity: 0.15
 
         &--top
-            $size: 220px
+            @include circle(220px)
+            // $size: 220px
             transform: translate(-40px, -40px)
-            width: $size
-            height: $size
-            opacity: 0.25
+            // width: $size
+            // height: $size
+            opacity: 0.20
             
         .is-dark &
             &--bottom
@@ -82,3 +93,54 @@ body
                 transform: translate(125px, -100px)
             &--top
                 transform: translate(175px, -40px)
+
+.cloud-cluster
+    position: absolute
+
+    &--top
+        opacity: 1
+        // background-color: yellow
+        // width: 100px
+        // height: 100px
+        transition: transform $trans-time*0.8 $trans-mode
+
+    &--bottom
+        opacity: 0.5
+        transition: transform $trans-time*1.1 $trans-mode
+
+    &.is-dark
+        transform: translateY(300px)
+    
+    &__cloud
+        position: absolute
+        color: white
+        background-color: white
+
+        &--bottom
+            &-1
+                @include circle(250px)
+                transform: translate(-5px, 40px)
+            &-2
+                @include circle(120px)
+                transform: translate(140px, 25px)
+            &-3
+                @include circle(120px)
+                transform: translate(210px, 35px)
+            &-4
+                @include circle(70px)
+                transform: translate(270px, 5px)
+
+        &--top
+            &-1
+                @include circle(170px)
+                transform: translate(45px, 100px)
+            &-2
+                @include circle(80px)
+                transform: translate(160px, 100px)
+            &-3
+                @include circle(150px)
+                transform: translate(220px, 60px)
+            &-4
+                @include circle(100px)
+                transform: translate(300px, 0px)
+            
