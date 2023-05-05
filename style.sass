@@ -9,20 +9,22 @@ body
     min-height: 100vh
     
 .main
-    display: block
+    position: relative
+    cursor: pointer
     margin: auto auto
     width: 350px
     height: 140px
     border-radius: 75px
     border: solid grey 5px
+    overflow: hidden
     background-color: DodgerBlue
     transition: background-color $trans-time $trans-mode
     
     &.is-dark
         background-color: MidnightBlue
 
-
 .switch
+    position: relative
     margin: 10px
     width: 120px
     height: 120px
@@ -34,3 +36,49 @@ body
     &.is-dark
         margin-left: 220px
         background-color: silver
+
+.sunlight
+    // position: absolute
+    // top: 20px
+    // left: 20px
+
+    // transition: top $trans-time $trans-mode, left $trans-time $trans-mode
+
+    // &.is-dark
+    //     left: 280px
+
+    &__layer
+        position: absolute
+        border-radius: 50%
+        background-color: white
+
+        transition: transform $trans-time $trans-mode
+
+        &--bottom
+            $size: 450px
+            transform: translate(-160px, -160px)
+            width: $size
+            height: $size
+            opacity: 0.1
+
+        &--mid
+            $size: 330px
+            transform: translate(-100px, -100px)
+            width: $size
+            height: $size
+            opacity: 0.15
+
+        &--top
+            $size: 220px
+            transform: translate(-40px, -40px)
+            width: $size
+            height: $size
+            opacity: 0.25
+            
+        .is-dark &
+            &--bottom
+                transform: translate(60px, -160px)
+            &--mid
+                transform: translate(125px, -100px)
+            &--top
+                transform: translate(175px, -40px)
