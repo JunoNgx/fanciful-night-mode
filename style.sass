@@ -1,4 +1,7 @@
-body  
+$trans-time: 1s
+$trans-mode: ease-in-out
+    
+body
     margin: 0
     display: flex
     place-items: center
@@ -10,5 +13,17 @@ body
     margin: auto auto
     background-color: red
     width: 350px
-    height: 150px
+    height: 140px
+    border-radius: 75px
+    border: solid grey 5px
 
+.switch
+    background-color: yellow
+    margin: 10px
+    width: 120px
+    height: 120px
+    border-radius: 60px
+    transition: margin-left $trans-time $trans-mode
+
+    &.is-dark
+        margin-left: 220px
