@@ -144,10 +144,19 @@ body
                 @include circle(100px)
                 transform: translate(300px, 0px)
 
-
 @mixin star($size)
     width: $size
     height: $size
+
+@keyframes twinkle
+        0%
+            transform: scale(1)
+        70%
+            transform: scale(1)
+        85%
+            transform: scale(1.2)
+        100%
+            transform: scale(1)
 
 .nightsky
     position: absolute
@@ -160,34 +169,58 @@ body
         clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%)
         top: -200px
 
+        // Animation props
+        animation-name: twinkle
+        animation-direction: normal
+        animation-fill-mode: none
+        animation-iteration-count: infinite
+        animation-timing-function: cubic-bezier(0.51,-0.46, 0.63, 1.45)
+        animation-duration: 3s
+
         &--1
             left: 100px
-            @include star(33px)
+            @include star(25px)
             transition: top $trans-mode $trans-time*0.8
+            // animation-delay: 10s
+            animation-duration: 3.5s
+
         &--2
             left: 20px
             @include star(13px)
             transition: top $trans-mode $trans-time*1.2
+            // animation-delay: 15s
+            animation-duration: 5s
+
         &--3
             left: 150px
-            @include star(20px)
+            @include star(17px)
             transition: top $trans-mode $trans-time*1.1
+            // animation-delay: 5s
+            animation-duration: 4s
         &--4
             left: 120px
             @include star(22px)
             transition: top $trans-mode $trans-time*0.95
+            // animation-delay: 7s
+            animation-duration: 3.2s
         &--5
             left: 55px
             @include star(12px)
             transition: top $trans-mode $trans-time*1.05
+            // animation-delay: 8s
+            animation-duration: 4.7s
         &--6
             left: 200px
             @include star(8px)
             transition: top $trans-mode $trans-time*1.15
+            // animation-delay: 12s
+            animation-duration: 5.6s
         &--7
             left: 40px
             @include star(11px)
             transition: top $trans-mode $trans-time*0.85
+            // animation-delay: 9s
+            animation-duration: 6.2s
 
     .is-dark &__star
         &--1
