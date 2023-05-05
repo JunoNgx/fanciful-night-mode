@@ -7,7 +7,7 @@ $trans-mode: ease-in-out
     border-radius: 50%
     
 body
-    background-color: black
+    background-color: white
     margin: 0
     display: flex
     place-items: center
@@ -21,8 +21,8 @@ body
     width: 350px
     height: 140px
     border-radius: 75px
-    border: solid grey 5px
-    // overflow: hidden
+    border: solid black 5px
+    overflow: hidden
     background-color: DeepSkyBlue
     transition: background-color $trans-time $trans-mode
     
@@ -35,6 +35,7 @@ body
     width: 120px
     height: 120px
     border-radius: 60px
+    overflow: hidden
 
     background-color: gold
     transition: margin-left $trans-time $trans-mode,  background-color $trans-time $trans-mode
@@ -42,6 +43,60 @@ body
     &.is-dark
         margin-left: 220px
         background-color: silver
+
+.moon
+    position: relative
+    transform: translateY(150px)
+    transition: transform $trans-time $trans-mode
+
+    &.is-dark
+        transform: translateY(0)
+
+    &__lasercannon
+        position: absolute
+        background-color: DimGray
+        width: 40px
+        height: 20px
+        border-radius: 50%
+        transform: translate(12px, 20px) rotate(-45deg)
+
+    &__lasercannon-core
+        position: absolute
+        background-color: silver
+        width: 10px
+        height: 5px
+        border-radius: 50%
+        transform: translate(27px, 27px) rotate(-45deg)
+    
+    &__equator
+        position: absolute
+        background-color: DimGray
+        width: 250px
+        height: 5px
+        transform: translateY(60px)
+
+
+
+// &__laser-ray
+//     position: absolute
+//     background-color: Lime
+//     width: 100px
+//     height: 5px
+//     border-radius: 50%
+//     transform: translate(-62px, 5px) rotate(25deg)
+
+//     &.is-dark
+//         opacity: 1
+//         animation: 0.3s ease-in-out 2s 1 normal bear-float
+
+// @keyframes laser-sizzling {
+//     0%
+//         height: 5px
+//     50%
+//         height: 7px
+//     100%
+//         height: 5px
+// }
 
 // This is dumb and terrible
 // Should use a container then transform translate the container for more simple rules
