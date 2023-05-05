@@ -273,6 +273,12 @@ footer
         &--7
             top: 0px
 
+@keyframes bear-float
+    0%
+        transform: translate(0, 0), rotation (0)
+    100%
+        transform: translate(240px, -200px) rotate(1800deg)
+
 .bear
     position: absolute
     left: 20px
@@ -282,9 +288,3 @@ footer
 
     &.is-dark
         animation: 5s linear 2s 1 normal bear-float
-
-@keyframes bear-float
-    0%
-        transform: translate(0, 0), rotation (0)
-    100%
-        transform: translate(240px, -200px) rotate(1800deg)
